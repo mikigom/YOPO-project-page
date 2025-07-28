@@ -2,7 +2,7 @@
 layout: project_page
 permalink: /
 
-title: YOPO: A Minimalist’s Detection Transformer for Monocular RGB Category‑level 9D Multi‑Object Pose Estimation
+title: <span class="main-title">YOPO: A Minimalist’s Detection Transformer for Monocular RGB Category‑level 9D Multi‑Object Pose Estimation</span>
 authors:
   - "[Hakjin Lee](#)"
   - "[Junghoon Seo](https://mikigom.github.io/)"
@@ -12,13 +12,10 @@ affiliations:
 paper: https://arxiv.org/abs/???
 code: https://github.com/rij12/YOPO           # placeholder until official repo is released
 ---
-<div class="columns is-centered">
-    <div class="column is-four-fifths">
-        <figure class="image is-16by9">
-            <iframe class="has-ratio" src="https://www.youtube.com/embed/OTb0iuSBxcw" title="YOPO Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </figure>
-    </div>
-</div>
+<figure class="image is-16by9">
+    <iframe class="has-ratio" src="https://www.youtube.com/embed/OTb0iuSBxcw" title="YOPO Project Video" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
 
 <!-- Using HTML to center the abstract -->
 <div class="columns is-centered has-text-centered">
@@ -55,6 +52,7 @@ Develop a <strong>single‑stage</strong>, <strong>RGB‑only</strong> model tha
 2. Predicts its full 9‑D pose <em>(rotation R, translation t, scale s)</em>,  
 3. Trains and infers without CAD, masks, or depth.
 
+---
 # Key Ideas
 1. **Query‑based DETR backbone** – inherits DINO’s two‑stage refinement to get strong 2‑D detections.  
 2. **Parallel pose head** – four MLP branches regress center‑offset, depth, rotation (6‑D rep) and scale.  
@@ -68,7 +66,7 @@ Develop a <strong>single‑stage</strong>, <strong>RGB‑only</strong> model tha
 
 | Method | CAD Model? | Seg. Mask? | Pseudo-depth? | End-to-end?
 |:---|:-:|:-:|:-:|:-:|
-| Synthesis (ECCV '20) | ✓ | ✓ | ✗ | ✗
+| Synthesis (ECCV '20) | **✓** | **✓** | **✗** | **✗**
 | MSOS (RA-L '21) | ✓ | ✓ | ✗ | ✗
 | CenterSnap (ICRA '22) | ✓ | ✗ | ✗ | ✓
 | OLD-Net (ECCV '22) | ✓ | ✗ | ✓ | ✗
@@ -88,6 +86,7 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
 * **Scalability.** The same architecture generalises across CAMERA25 (synthetic), REAL275 (real) and HouseCat6D (10 categories).  
 * **Speed.** One forward pass ≈ <em>real‑time</em> (**21.3 FPS** @ A6000, YOPO R50) inference suitable for robotic manipulation loops.
 
+---
 # Experiments
 
 **Table. Comparison on the REAL275 dataset. All methods use only RGB input.**
@@ -110,25 +109,62 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
 
 #### Qualitative Comparison
 
-<div class="carousel-container">
-    <div class="carousel">
-        <div class="item">
-            <img src="static/image/motivation.png" alt="YOPO Motivation">
-            <div class="label">YOPO Motivation</div>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/ring.mp4"
+                    type="video/mp4">
+          </video>
         </div>
-        <div class="item">
-            <img src="static/image/architecture.png" alt="YOPO Architecture">
-            <div class="label">YOPO Architecture</div>
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/palmpress-low.mp4"
+                    type="video/mp4">
+          </video>
         </div>
-        <div class="item">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/OTb0iuSBxcw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="label">YOPO in Action</div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sphere3finger-low.mp4"
+                    type="video/mp4">
+          </video>
         </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/powersphere-low.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mediumwrap.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/palmarpinch.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-extension">
+          <video poster="" id="extension" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/parallelextension-low.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-pinch">
+          <video poster="" id="pinch" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/pinch-low.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
     </div>
-</div>
-
+  </div>
+</section>
 
 ## Citation
 ```

@@ -9,12 +9,24 @@ $(document).ready(function() {
 
   var options = {
     slidesToScroll: 1,
-    slidesToShow: 1, // Show one slide at a time for a gallery
+    slidesToShow: 1,
     loop: true,
     infinite: true,
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 3000,
-  }
+    autoplay: true,
+    breakpoints: [{
+      changePoint: 480,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }, {
+      changePoint: 640,
+      slidesToShow: 2,
+      slidesToScroll: 2
+    }, {
+      changePoint: 768,
+      slidesToShow: 3,
+      slidesToScroll: 3
+    }]
+  };
 
   // Initialize all div with carousel class
   var carousels = bulmaCarousel.attach('.carousel', options);
