@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/carousel.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css" />
 
 
@@ -53,7 +54,10 @@
           {% if page.authors %}
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              {{ page.authors }}
+              {% for author in page.authors %}
+                {{ author | markdownify | remove: '<p>' | remove: '</p>' }}
+                {%- unless forloop.last -%},&nbsp;{%- endunless -%}
+              {% endfor %}
             </span>
           </div>
           {% endif %}
@@ -61,7 +65,10 @@
           {% if page.affiliations %}
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              {{ page.affiliations }}
+              {% for affiliation in page.affiliations %}
+                {{ affiliation | markdownify | remove: '<p>' | remove: '</p>' }}
+                {%- unless forloop.last -%},&nbsp;{%- endunless -%}
+              {% endfor %}
             </span>
           </div>
           {% endif %}

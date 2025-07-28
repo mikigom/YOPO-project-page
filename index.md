@@ -4,9 +4,11 @@ permalink: /
 
 title: YOPO: A Minimalist’s Detection Transformer for Monocular RGB Category‑level 9D Multi‑Object Pose Estimation
 authors:
-  - Hakjin Lee,  Junghoon Seo,  Jaehoon Sim
+  - "[Hakjin Lee](#)"
+  - "[Junghoon Seo](https://mikigom.github.io/)"
+  - "[Jaehoon Sim](#)"
 affiliations:
-  - AI Robot Team,  PIT IN Co.,  Republic of Korea
+  - "AI Robot Team, [PIT IN Co.](https://pitin-ev.com/), Republic of Korea"
 paper: https://arxiv.org/abs/???
 code: https://github.com/rij12/YOPO           # placeholder until official repo is released
 ---
@@ -107,6 +109,26 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
 | **YOPO* (Ours) Swin-L** | **79.1** | **18.3** | **84.4** | 67.4 | **56.1** |
 
 #### Qualitative Comparison
+
+<div class="carousel-container">
+    <div class="carousel">
+        <div class="item">
+            <img src="static/image/motivation.png" alt="YOPO Motivation">
+            <div class="label">YOPO Motivation</div>
+        </div>
+        <div class="item">
+            <img src="static/image/architecture.png" alt="YOPO Architecture">
+            <div class="label">YOPO Architecture</div>
+        </div>
+        <div class="item">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/OTb0iuSBxcw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="label">YOPO in Action</div>
+        </div>
+    </div>
+</div>
+
 
 ## Citation
 ```

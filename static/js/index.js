@@ -9,10 +9,10 @@ $(document).ready(function() {
 
   var options = {
     slidesToScroll: 1,
-    slidesToShow: 3,
+    slidesToShow: 1, // Show one slide at a time for a gallery
     loop: true,
     infinite: true,
-    autoplay: false,
+    autoplay: true, // Enable autoplay
     autoplaySpeed: 3000,
   }
 
