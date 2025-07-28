@@ -40,6 +40,10 @@ new bar for RGB‑only methods. Code and pretrained models will be released.
 
 ---
 
+![YOPO Overview](/static/image/motivation.png)
+
+*Figure. Motivation of YOPO.*
+
 ## Background
 Estimating an object’s 6‑D (or, for unknown scale, 9‑D) pose from a single RGB frame is essential for robotic grasping, AR, and autonomous navigation. Most prior <em>category‑level</em> methods rely on extra geometric cues—CAD models, instance masks, or pseudo‑depth—plus two‑stage pipelines that first detect and then crop each object. 
 
@@ -51,6 +55,10 @@ Develop a <strong>single‑stage</strong>, <strong>RGB‑only</strong> model tha
 2. Predicts its full 9‑D pose <em>(rotation R, translation t, scale s)</em>,  
 3. Trains and infers without CAD, masks, or depth.
 
+![YOPO Overview](/static/image/architecture.png)
+
+*Figure. A schematic of the YOPO architecture.*
+
 ## Key Ideas
 1. **Query‑based DETR backbone** – inherits DINO’s two‑stage refinement to get strong 2‑D detections.  
 2. **Parallel pose head** – four MLP branches regress center‑offset, depth, rotation (6‑D rep) and scale.  
@@ -58,17 +66,20 @@ Develop a <strong>single‑stage</strong>, <strong>RGB‑only</strong> model tha
 4. **3‑D‑aware Hungarian matching** – assigns predictions with a cost that mixes classification, IoU, translation & rotation.  
 5. **Minimal supervision** – 2‑D boxes are auto‑derived by projecting 3‑D cuboids; no extra labels required.
 
-![YOPO Overview](/static/image/YOPO_overview.png)
+## Table 1. Comparison of methods on additional data requirements. "✓" denotes required and "✗" denotes not required.*
 
-*Figure 1  A schematic of the YOPO architecture (manually added).*
-
-## Table 1 Additional data requirements of recent RGB methods
-
-| Method (Year) | CAD Model | Seg. Mask | Pseudo‑Depth |
-|--------------|:---------:|:---------:|:------------:|
-| OLD‑Net (’22) | ✓ | ✗ | ✓ |
-| DMSR (’24)   | ✓ | ✓ | ✓ |
-| DA‑Pose (’25)| ✗ | ✓ | ✓ |
+| Method | CAD Model | Seg. Mask | Pseudo-depth |
+|:---|:---:|:---:|:---:|
+| Synthesis (ECCV '20) | ✓ | ✓ | ✗ |
+| MSOS (RA-L '21) | ✓ | ✓ | ✗ |
+| CenterSnap (ICRA '22) | ✓ | ✗ | ✗ |
+| OLD-Net (ECCV '22) | ✓ | ✗ | ✓ |
+| FAP-Net (ICRA '24) | ✓ | ✓ | ✓ |
+| DMSR (ICRA '24) | ✓ | ✓ | ✓ |
+| LaPose (ECCV '24) | ✓ | ✓ | ✗ |
+| MonoDiff9D (ICRA '25) | ✗ | ✓ | ✓ |
+| DA-Pose (RA-L '25) | ✗ | ✓ | ✓ |
+| GIVEPose (CVPR '25) | ✓ | ✓ | ✗ |
 | **YOPO (Ours)** | ✗ | ✗ | ✗ |
 
 YOPO is the **only** approach in this list that dispenses with <em>all</em> external cues.
@@ -79,6 +90,40 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
 * **Simplicity.** Training uses just images + 9‑D labels—no costly CAD collections or pre‑segmentation.  
 * **Scalability.** The same architecture generalises across CAMERA25 (synthetic), REAL275 (real) and HouseCat6D (10 categories).  
 * **Speed.** One forward pass ≈ <em>real‑time</em> inference suitable for robotic manipulation loops.
+
+## REAL275 Benchmark
+*Table 2. Comparison on the REAL275 dataset. All methods use only RGB input. `*` denotes models trained with additional REAL-AUG data augmentation.*
+| Method | IoU<sub>50</sub> | IoU<sub>75</sub> | 10 cm | 10° | 10°/10 cm |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| Synthesis (ECCV '20) | - | - | 34.0 | 14.2 | 4.8 |
+| MSOS (RA-L '21) | 23.4 | 3.0 | 39.5 | 29.2 | 9.6 |
+| CenterSnap-RGB (ICRA '22) | 31.5 | - | - | - | 30.1 |
+| OLD-Net (ECCV '22) | 25.4 | 1.9 | 38.9 | 37.0 | 9.8 |
+| FAP-Net (ICRA '24) | 36.8 | 5.2 | 49.7 | 49.6 | 24.5 |
+| DMSR (ICRA '24) | 28.3 | 6.1 | 37.3 | 59.5 | 23.6 |
+| LaPose (ECCV '24) | 17.5 | 2.6 | 44.4 | - | 30.5 |
+| MonoDiff9D (ICRA '25) | 31.5 | 6.3 | 41.0 | 56.3 | 25.7 |
+| DA-Pose (RA-L '25) | 28.1 | 3.6 | 45.8 | 27.5 | 13.4 |
+| GIVEPose (CVPR '25) | 20.1 | - | 45.9 | - | 34.2 |
+| YOPO (Ours) R50 | 64.2 | 16.7 | 70.0 | 54.1 | 37.4 |
+| YOPO (Ours) Swin-L | 67.1 | 15.8 | 78.0 | **67.9** | 53.3 |
+| YOPO* (Ours) Swin-L | **79.1** | **18.3** | **84.4** | 67.4 | **56.1** |
+
+## Qualitative Comparison
+
+<div class="carousel-container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0;">
+    <div id="results-carousel" class="carousel" style="width: 80%; max-width: 960px;">
+        <div class="item-1">
+            <img src="static/image/architecture.png" alt="YOPO Architecture">
+        </div>
+        <div class="item-2">
+            <img src="static/image/motivation.png" alt="YOPO Motivation">
+        </div>
+        <div class="item-3">
+            <img src="static/image/Turing_machine.png" alt="Turing Machine">
+        </div>
+    </div>
+</div>
 
 ## Citation
 ```

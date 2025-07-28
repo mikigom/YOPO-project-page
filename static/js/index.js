@@ -53,4 +53,11 @@ $(document).ready(function() {
 
     bulmaSlider.attach();
 
+    bulmaCarousel.attach('#results-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+    });
 })
