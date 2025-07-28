@@ -9,7 +9,6 @@ affiliations:
   - AI Robot Team,  PIT IN Co.,  Republic of Korea
 paper: https://arxiv.org/abs/???
 code: https://github.com/rij12/YOPO           # placeholder until official repo is released
-data: https://github.com/hughw19/NOCS_CVPR2019
 ---
 <div class="columns is-centered">
     <div class="column is-four-fifths">
@@ -40,61 +39,59 @@ new bar for RGB‑only methods. Code and pretrained models will be released.
 
 ---
 
-![YOPO Overview](/static/image/motivation.png)
+# Introduction
 
-*Figure. Motivation of YOPO.*
+![YOPO Overview](static/image/motivation.png)
 
-## Background
 Estimating an object’s 6‑D (or, for unknown scale, 9‑D) pose from a single RGB frame is essential for robotic grasping, AR, and autonomous navigation. Most prior <em>category‑level</em> methods rely on extra geometric cues—CAD models, instance masks, or pseudo‑depth—plus two‑stage pipelines that first detect and then crop each object. 
 
 We asks: **Can we remove all that baggage?**
 
-## Objective
+#### Objective
 Develop a <strong>single‑stage</strong>, <strong>RGB‑only</strong> model that:
 1. Detects every object in the scene,  
 2. Predicts its full 9‑D pose <em>(rotation R, translation t, scale s)</em>,  
 3. Trains and infers without CAD, masks, or depth.
 
-![YOPO Overview](/static/image/architecture.png)
-
-*Figure. A schematic of the YOPO architecture.*
-
-## Key Ideas
+# Key Ideas
 1. **Query‑based DETR backbone** – inherits DINO’s two‑stage refinement to get strong 2‑D detections.  
 2. **Parallel pose head** – four MLP branches regress center‑offset, depth, rotation (6‑D rep) and scale.  
 3. **Box‑conditioned translation** – concatenates the 2‑D bounding box to the query so depth & offset learn geometric context.  
 4. **3‑D‑aware Hungarian matching** – assigns predictions with a cost that mixes classification, IoU, translation & rotation.  
 5. **Minimal supervision** – 2‑D boxes are auto‑derived by projecting 3‑D cuboids; no extra labels required.
 
-## Table 1. Comparison of methods on additional data requirements. "✓" denotes required and "✗" denotes not required.*
+![YOPO Overview](static/image/architecture.png)
 
-| Method | CAD Model | Seg. Mask | Pseudo-depth |
-|:---|:---:|:---:|:---:|
-| Synthesis (ECCV '20) | ✓ | ✓ | ✗ |
-| MSOS (RA-L '21) | ✓ | ✓ | ✗ |
-| CenterSnap (ICRA '22) | ✓ | ✗ | ✗ |
-| OLD-Net (ECCV '22) | ✓ | ✗ | ✓ |
-| FAP-Net (ICRA '24) | ✓ | ✓ | ✓ |
-| DMSR (ICRA '24) | ✓ | ✓ | ✓ |
-| LaPose (ECCV '24) | ✓ | ✓ | ✗ |
-| MonoDiff9D (ICRA '25) | ✗ | ✓ | ✓ |
-| DA-Pose (RA-L '25) | ✗ | ✓ | ✓ |
-| GIVEPose (CVPR '25) | ✓ | ✓ | ✗ |
-| **YOPO (Ours)** | ✗ | ✗ | ✗ |
+**Table. Comparison of methods on additional data requirements / model pipeline**
+
+| Method | CAD Model? | Seg. Mask? | Pseudo-depth? | End-to-end?
+|:---|:-:|:-:|:-:|:-:|
+| Synthesis (ECCV '20) | ✓ | ✓ | ✗ | ✗
+| MSOS (RA-L '21) | ✓ | ✓ | ✗ | ✗
+| CenterSnap (ICRA '22) | ✓ | ✗ | ✗ | ✓
+| OLD-Net (ECCV '22) | ✓ | ✗ | ✓ | ✗
+| FAP-Net (ICRA '24) | ✓ | ✓ | ✓ | ✗
+| DMSR (ICRA '24) | ✓ | ✓ | ✓ | ✗
+| LaPose (ECCV '24) | ✓ | ✓ | ✗ | ✗
+| MonoDiff9D (ICRA '25) | ✗ | ✓ | ✓ | ✗
+| DA-Pose (RA-L '25) | ✗ | ✓ | ✓ | ✗
+| GIVEPose (CVPR '25) | ✓ | ✓ | ✗ | ✗
+| **YOPO (Ours)** | ✗ | ✗ | ✗ | ✓
 
 YOPO is the **only** approach in this list that dispenses with <em>all</em> external cues.
 
-## Significance
-* **Performance.** On REAL275, YOPO‑Swin‑L tops RGB baselines with  
-  67 % IoU<sub>50</sub> and 53 % under the 10°/10 cm metric, narrowing the gap to RGB‑D systems.  
-* **Simplicity.** Training uses just images + 9‑D labels—no costly CAD collections or pre‑segmentation.  
+#### Significance
+* **Performance.** On REAL275, YOPO‑Swin‑L tops RGB baselines with **79.1%  IoU<sub>50</sub>** and **56.1%  under the 10°/10cm**  metric.
+* **Simplicity.** Training uses just images + 9‑D labels—no costly CAD collections or instance segmentation.  
 * **Scalability.** The same architecture generalises across CAMERA25 (synthetic), REAL275 (real) and HouseCat6D (10 categories).  
-* **Speed.** One forward pass ≈ <em>real‑time</em> inference suitable for robotic manipulation loops.
+* **Speed.** One forward pass ≈ <em>real‑time</em> (**21.3 FPS** @ A6000, YOPO R50) inference suitable for robotic manipulation loops.
 
-## REAL275 Benchmark
-*Table 2. Comparison on the REAL275 dataset. All methods use only RGB input. `*` denotes models trained with additional REAL-AUG data augmentation.*
+# Experiments
+
+**Table. Comparison on the REAL275 dataset. All methods use only RGB input.**
+
 | Method | IoU<sub>50</sub> | IoU<sub>75</sub> | 10 cm | 10° | 10°/10 cm |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:-|:---:|:---:|:---:|:---:|:---:|
 | Synthesis (ECCV '20) | - | - | 34.0 | 14.2 | 4.8 |
 | MSOS (RA-L '21) | 23.4 | 3.0 | 39.5 | 29.2 | 9.6 |
 | CenterSnap-RGB (ICRA '22) | 31.5 | - | - | - | 30.1 |
@@ -105,25 +102,11 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
 | MonoDiff9D (ICRA '25) | 31.5 | 6.3 | 41.0 | 56.3 | 25.7 |
 | DA-Pose (RA-L '25) | 28.1 | 3.6 | 45.8 | 27.5 | 13.4 |
 | GIVEPose (CVPR '25) | 20.1 | - | 45.9 | - | 34.2 |
-| YOPO (Ours) R50 | 64.2 | 16.7 | 70.0 | 54.1 | 37.4 |
-| YOPO (Ours) Swin-L | 67.1 | 15.8 | 78.0 | **67.9** | 53.3 |
-| YOPO* (Ours) Swin-L | **79.1** | **18.3** | **84.4** | 67.4 | **56.1** |
+| **YOPO (Ours) R50** | 64.2 | 16.7 | 70.0 | 54.1 | 37.4 |
+| **YOPO (Ours) Swin-L** | 67.1 | 15.8 | 78.0 | **67.9** | 53.3 |
+| **YOPO* (Ours) Swin-L** | **79.1** | **18.3** | **84.4** | 67.4 | **56.1** |
 
-## Qualitative Comparison
-
-<div class="carousel-container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0;">
-    <div id="results-carousel" class="carousel" style="width: 80%; max-width: 960px;">
-        <div class="item-1">
-            <img src="static/image/architecture.png" alt="YOPO Architecture">
-        </div>
-        <div class="item-2">
-            <img src="static/image/motivation.png" alt="YOPO Motivation">
-        </div>
-        <div class="item-3">
-            <img src="static/image/Turing_machine.png" alt="Turing Machine">
-        </div>
-    </div>
-</div>
+#### Qualitative Comparison
 
 ## Citation
 ```
