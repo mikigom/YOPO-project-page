@@ -107,58 +107,39 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
 | **YOPO (Ours) Swin-L** | 67.1 | 15.8 | 78.0 | **67.9** | 53.3 |
 | **YOPO* (Ours) Swin-L** | **79.1** | **18.3** | **84.4** | 67.4 | **56.1** |
 
-#### Qualitative Comparison
-
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
+      <h3 class="title is-4 has-text-centered">Sample Results on REAL275 test Scenes</h3>
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/ring.mp4"
-                    type="video/mp4">
+        <div class="item">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/comparison_video_scene_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
         </div>
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/palmpress-low.mp4"
-                    type="video/mp4">
+        <div class="item">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/comparison_video_scene_2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
         </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sphere3finger-low.mp4"
-                    type="video/mp4">
+        <div class="item">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/comparison_video_scene_3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
         </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/powersphere-low.mp4"
-                    type="video/mp4">
+        <div class="item">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/comparison_video_scene_4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
         </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mediumwrap.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/palmarpinch.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-extension">
-          <video poster="" id="extension" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/parallelextension-low.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-pinch">
-          <video poster="" id="pinch" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/pinch-low.mp4"
-                    type="video/mp4">
+        <div class="item">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/comparison_video_scene_5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
         </div>
       </div>

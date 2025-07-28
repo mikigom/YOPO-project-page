@@ -1,0 +1,57 @@
+/* Results carousel specific styles */
+.results-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+/* Style the video items */
+.results-carousel .item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+/* Ensure videos display properly */
+.results-carousel .item video {
+  width: 100%;
+  max-width: 800px; /* Limit max width for better viewing */
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Bulma carousel overrides */
+.carousel {
+  background-color: transparent;
+}
+
+.carousel .slider-navigation-previous,
+.carousel .slider-navigation-next {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.carousel .slider-navigation-previous:hover,
+.carousel .slider-navigation-next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Ensure proper display of carousel items */
+.carousel .slider-item {
+  display: block !important;
+}
+
+/* Hide the pagination dots */
+.carousel .slider-pagination {
+    display: none !important;
+} 
