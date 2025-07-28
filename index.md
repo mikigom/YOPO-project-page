@@ -2,7 +2,7 @@
 layout: project_page
 permalink: /
 
-title: <span class="main-title">YOPO: A Minimalist’s Detection Transformer for Monocular RGB Category‑level 9D Multi‑Object Pose Estimation</span>
+title: YOPO: A Minimalist’s Detection Transformer for Monocular RGB Category‑level 9D Multi‑Object Pose Estimation
 authors:
   - "[Hakjin Lee](#)"
   - "[Junghoon Seo](https://mikigom.github.io/)"
