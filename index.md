@@ -4,13 +4,13 @@ permalink: /
 
 title: YOPO: A Minimalist’s Detection Transformer for Monocular RGB Category‑level 9D Multi‑Object Pose Estimation
 authors:
-  - "[Hakjin Lee](#)"
+  - "[Hakjin Lee](https://scholar.google.com/citations?user=GIdEXLsy77UC&hl=en)"
   - "[Junghoon Seo](https://mikigom.github.io/)"
   - "[Jaehoon Sim](#)"
 affiliations:
   - "AI Robot Team, [PIT IN Co.](https://pitin-ev.com/), Republic of Korea"
 paper: https://arxiv.org/abs/???
-code: https://github.com/rij12/YOPO           # placeholder until official repo is released
+code: https://github.com/???/???           # placeholder until official repo is released
 ---
 <figure class="image is-16by9">
     <iframe class="has-ratio" src="https://www.youtube.com/embed/OTb0iuSBxcw" title="YOPO Project Video" frameborder="0" 
@@ -103,9 +103,9 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
 | MonoDiff9D (ICRA '25) | 31.5 | 6.3 | 41.0 | 56.3 | 25.7 |
 | DA-Pose (RA-L '25) | 28.1 | 3.6 | 45.8 | 27.5 | 13.4 |
 | GIVEPose (CVPR '25) | 20.1 | - | 45.9 | - | 34.2 |
-| **YOPO (Ours) R50** | 64.2 | 16.7 | 70.0 | 54.1 | 37.4 |
-| **YOPO (Ours) Swin-L** | 67.1 | 15.8 | 78.0 | **67.9** | 53.3 |
-| **YOPO* (Ours) Swin-L** | **79.1** | **18.3** | **84.4** | 67.4 | **56.1** |
+| **YOPO R50 (Ours)** | 64.2 | 16.7 | 70.0 | 54.1 | 37.4 |
+| **YOPO Swin-L (Ours)** | 67.1 | 15.8 | 78.0 | **67.9** | 53.3 |
+| **YOPO* Swin-L (Ours)** | **79.1** | **18.3** | **84.4** | 67.4 | **56.1** |
 
 <section class="hero is-light is-small">
   <div class="hero-body">
