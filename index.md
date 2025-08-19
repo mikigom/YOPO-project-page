@@ -22,16 +22,14 @@ code: https://github.com/???/???           # placeholder until official repo is
     <div class="column is-four-fifths">
         <h2>Abstract</h2>
         <div class="content has-text-justified">
-Accurate 3‑D object pose estimation is fundamental for robotic perception and manipulation.  
-We introduce <strong>YOPO</strong>, an <em>end‑to‑end</em> framework for monocular <em>category‑level 9‑DoF</em>
-pose estimation that requires only RGB images and pose annotations.  
-Built upon the transformer‑based DINO detector, YOPO augments detection queries with
-parallel regression heads that jointly predict object <em>rotation</em>, <em>3‑D translation</em> and
-<em>anisotropic scale</em>.  
-A single forward pass outputs both object categories and 9‑D poses—no shape priors,
-CAD templates, segmentation masks, or post‑processing are needed.  
-YOPO achieves state‑of‑the‑art accuracy on CAMERA25, REAL275 and HouseCat6D, setting a
-new bar for RGB‑only methods. Code and pretrained models will be released.
+Accurately recovering the full 9-DoF pose of unseen instances within specific categories from a single RGB image remains a core challenge for robotics and automation.
+Most existing solutions still lean on pseudo-depth, CAD models, or multi-stage cascades that separate 2D detection from pose estimation.
+Motivated by the need for a simpler, RGB-only alternative that learns directly at the category level, we revisit a longstanding question: <em>Can object detection and 9-DoF pose estimation be unified with high performance, without any additional data?<\em>
+We show that they can be achieved with our <strong>YOPO<\strong>, a single-stage, query-based framework that treats category-level 9-DoF estimation as a natural extension of 2D detection.
+YOPO augments a transformer detector with a lightweight pose head, a bounding-box–conditioned translation module, and a 6D–aware Hungarian matching cost.
+The model is trained end-to-end only with RGB images and pose labels.
+Despite its minimalist design, YOPO sets a new SOTA on three benchmarks. On REAL275 dataset, it achieves 79.6% IoU$_{50}$ and 54.1% under the $10^\circ 10\,\mathrm{cm}$ metric, surpassing all prior RGB-only methods and closing much of the gap to RGB-D systems.
+Code and pretrained models will be released.
         </div>
     </div>
 </div>
@@ -103,9 +101,9 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
 | MonoDiff9D (ICRA '25) | 31.5 | 6.3 | 41.0 | 56.3 | 25.7 |
 | DA-Pose (RA-L '25) | 28.1 | 3.6 | 45.8 | 27.5 | 13.4 |
 | GIVEPose (CVPR '25) | 20.1 | - | 45.9 | - | 34.2 |
-| **YOPO R50 (Ours)** | 64.2 | 16.7 | 70.0 | 54.1 | 37.4 |
-| **YOPO Swin-L (Ours)** | 67.1 | 15.8 | 78.0 | **67.9** | 53.3 |
-| **YOPO* Swin-L (Ours)** | **79.1** | **18.3** | **84.4** | 67.4 | **56.1** |
+| **YOPO R50 (Ours)** | 67.1 | 16.6 | 75.6 | 54.0 | 40.7 |
+| **YOPO Swin-L (Ours)** | 71.6 | 16.4 | 77.8 | **67.6** | 52.8 |
+| **YOPO* Swin-L (Ours)** | **79.6** | **19.6** | **84.4** | 66.0 | **54.1** |
 
 <section class="hero is-light is-small">
   <div class="hero-body">
