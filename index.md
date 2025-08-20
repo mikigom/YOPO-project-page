@@ -13,7 +13,7 @@ paper: https://arxiv.org/abs/???
 code: https://github.com/???/???           # placeholder until official repo is released
 ---
 <figure class="image is-16by9">
-    <iframe class="has-ratio" src="https://www.youtube.com/embed/OTb0iuSBxcw" title="YOPO Project Video" frameborder="0" 
+    <iframe class="has-ratio" src="https://www.youtube.com/embed/m1LqzAMNJiU" title="YOPO Project Video" frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>
 
