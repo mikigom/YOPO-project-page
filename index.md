@@ -6,7 +6,8 @@ title: YOPO: A Minimalist’s Detection Transformer for Monocular RGB Ca
 authors:
   - "[Hakjin Lee](https://scholar.google.com/citations?user=GIdEXLsy77UC&hl=en)"
   - "[Junghoon Seo](https://mikigom.github.io/)"
-  - "[Jaehoon Sim](https://ieeexplore.ieee.org/author/37085657134)"
+  - "[Jaehoon Sim](
+https://www.linkedin.com/in/jaehoon-sim-801404175?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)"
 affiliations:
   - "AI Robot Team, [PIT IN Co.](https://pitin-ev.com/), Republic of Korea"
 paper: https://arxiv.org/abs/???
