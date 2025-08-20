@@ -24,8 +24,8 @@ code: https://github.com/???/???           # placeholder until official repo is
         <div class="content has-text-justified">
 Accurately recovering the full 9-DoF pose of unseen instances within specific categories from a single RGB image remains a core challenge for robotics and automation.
 Most existing solutions still lean on pseudo-depth, CAD models, or multi-stage cascades that separate 2D detection from pose estimation.
-Motivated by the need for a simpler, RGB-only alternative that learns directly at the category level, we revisit a longstanding question: <em>Can object detection and 9-DoF pose estimation be unified with high performance, without any additional data?<\em>
-We show that they can be achieved with our <strong>YOPO<\strong>, a single-stage, query-based framework that treats category-level 9-DoF estimation as a natural extension of 2D detection.
+Motivated by the need for a simpler, RGB-only alternative that learns directly at the category level, we revisit a longstanding question: <em>Can object detection and 9-DoF pose estimation be unified with high performance, without any additional data?</em>
+We show that they can be achieved with our <strong>YOPO</strong>, a single-stage, query-based framework that treats category-level 9-DoF estimation as a natural extension of 2D detection.
 YOPO augments a transformer detector with a lightweight pose head, a bounding-box–conditioned translation module, and a 6D–aware Hungarian matching cost.
 The model is trained end-to-end only with RGB images and pose labels.
 Despite its minimalist design, YOPO sets a new SOTA on three benchmarks. On REAL275 dataset, it achieves 79.6% IoU$_{50}$ and 54.1% under the $10^\circ 10\,\mathrm{cm}$ metric, surpassing all prior RGB-only methods and closing much of the gap to RGB-D systems.
