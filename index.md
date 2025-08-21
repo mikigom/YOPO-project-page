@@ -141,6 +141,12 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
             Your browser does not support the video tag.
           </video>
         </div>
+        <div class="item">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/comparison_video_scene_6.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
     </div>
   </div>
