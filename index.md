@@ -80,7 +80,7 @@ Develop a <strong>single‑stage</strong>, <strong>RGB‑only</strong> model tha
 YOPO is the **only** approach in this list that dispenses with <em>all</em> external cues.
 
 #### Significance
-* **Performance.** On REAL275, YOPO‑Swin‑L tops RGB baselines with **79.1%  IoU<sub>50</sub>** and **56.1%  under the 10°/10cm**  metric.
+* **Performance.** On REAL275, YOPO‑Swin‑L tops RGB baselines with **79.6%  IoU<sub>50</sub>** and **54.1%  under the 10°/10cm**  metric.
 * **Simplicity.** Training uses just images + 9‑D labels—no costly CAD collections or instance segmentation.  
 * **Scalability.** The same architecture generalises across CAMERA25 (synthetic), REAL275 (real) and HouseCat6D (10 categories).  
 * **Speed.** One forward pass ≈ <em>real‑time</em> (**21.3 FPS** @ A6000, YOPO R50) inference suitable for robotic manipulation loops.
