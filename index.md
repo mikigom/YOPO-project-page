@@ -10,7 +10,7 @@ authors:
 https://www.linkedin.com/in/jaehoon-sim-801404175?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)"
 affiliations:
   - "AI Robot Team, [PIT IN Co.](https://pitin-ev.com/), Republic of Korea"
-paper: https://arxiv.org/abs/???
+paper: //arxiv.org/abs/2508.14965
 code: https://github.com/???/???           # placeholder until official repo is released
 ---
 <figure class="image is-16by9">
@@ -157,7 +157,7 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
 @article{lee2025yopo,
   title     = {You Only Pose Once: A Minimalist’s Detection Transformer for Monocular RGB Category-level 9D Multi-Object Pose Estimation},
   author    = {Hakjin Lee and Junghoon Seo and Jaehoon Sim},
-  journal   = {arXiv preprint arXiv:????.?????},
+  journal   = {arXiv preprint arXiv:2508.14965},
   year      = {2025}
 }
 ```
