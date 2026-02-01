@@ -74,6 +74,14 @@
           </div>
           {% endif %}
 
+          {% if page.venue %}
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" style="font-weight: bold;">
+              {{ page.venue }}
+            </span>
+          </div>
+          {% endif %}
+
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->

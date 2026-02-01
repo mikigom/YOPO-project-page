@@ -10,6 +10,7 @@ authors:
 https://www.linkedin.com/in/jaehoon-sim-801404175?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)"
 affiliations:
   - "AI Robot Team, [PIT IN Co.](https://pitin-ev.com/), Republic of Korea"
+venue: "IEEE International Conference on Robotics and Automation (ICRA) 2026"
 paper: //arxiv.org/abs/2508.14965
 code: https://github.com/???/???           # placeholder until official repo is released
 ---
@@ -154,10 +155,10 @@ YOPO is the **only** approach in this list that dispenses with <em>all</em> exte
 
 ## Citation
 ```
-@article{lee2025yopo,
+@inproceedings{lee2026yopo,
   title     = {You Only Pose Once: A Minimalist’s Detection Transformer for Monocular RGB Category-level 9D Multi-Object Pose Estimation},
-  author    = {Hakjin Lee and Junghoon Seo and Jaehoon Sim},
-  journal   = {arXiv preprint arXiv:2508.14965},
-  year      = {2025}
+  author    = {Lee, Hakjin and Seo, Junghoon and Sim, Jaehoon},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2026}
 }
 ```
