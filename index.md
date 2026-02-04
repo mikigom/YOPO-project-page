@@ -12,7 +12,7 @@ affiliations:
   - "AI Robot Team, [PIT IN Co.](https://pitin-ev.com/), Republic of Korea"
 venue: "IEEE International Conference on Robotics and Automation (ICRA) 2026"
 paper: //arxiv.org/abs/2508.14965
-code: https://github.com/???/???           # placeholder until official repo is released
+code: https://github.com/nijkah/YOPO
 ---
 <figure class="image is-16by9">
     <iframe class="has-ratio" src="https://www.youtube.com/embed/8n0QMGGdnHE" title="YOPO Project Video" frameborder="0" 
